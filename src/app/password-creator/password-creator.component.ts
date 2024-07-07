@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-password-creator',
@@ -91,15 +90,7 @@ export class PasswordCreatorComponent {
       symbols: [false],
     }),
   });
-  private updatePasswordLength(formValue: string, increment: number): string {
-    const currentLength = formValue?.length || 0;
-    const newLength = Math.max(
-      this.MIN_PASSWORD_LENGTH,
-      Math.min(this.MAX_PASSWORD_LENGTH, currentLength + increment)
-    );
-    return formValue?.slice(0, newLength) || '';
-  }
-  public randomChar(array: string[]): any {
+  public randomChar(array: string[]): string {
     return array[Math.floor(Math.random() * array.length)];
   }
   public GeneratePassword(): void {
@@ -119,7 +110,6 @@ export class PasswordCreatorComponent {
     if (this.passwordForm.value.filter?.symbols) {
       charCategories.push(this.symArray);
     }
-
     if (charCategories.length == 0) {
       alert('Нужно ввести хотя бы 1 параметр');
       return;
@@ -143,7 +133,9 @@ export class PasswordCreatorComponent {
       if (this.passwordForm.value.length <= this.MIN_PASSWORD_LENGTH) {
         return;
       } else {
-        this.passwordForm.value.length--;
+        this.passwordForm.patchValue({
+          length: this.passwordForm.value.length - 1,
+        });
         this.GeneratePassword();
       }
     }
@@ -153,7 +145,9 @@ export class PasswordCreatorComponent {
       if (this.passwordForm.value.length >= this.MAX_PASSWORD_LENGTH) {
         return;
       } else {
-        this.passwordForm.value.length++;
+        this.passwordForm.patchValue({
+          length: this.passwordForm.value.length + 1,
+        });
         this.GeneratePassword();
       }
     }
@@ -166,6 +160,6 @@ export class PasswordCreatorComponent {
         100;
       return `linear-gradient(to right, var(--accentPurple) 0%, var(--accentPurple) ${percentage}%, var(--lightGrey) ${percentage}%, var(--lightGrey) 100%)`;
     }
-    return 'black';
+    return 'var(--lightGrey)';
   }
 }

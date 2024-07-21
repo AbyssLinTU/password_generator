@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # PasswordGenerator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
@@ -28,4 +27,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 =======
 # password_generator
->>>>>>> 8853d3c83ee7c7549e98259720d98e5d98d70076

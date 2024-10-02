@@ -1,0 +1,23 @@
+<div class="convertor">
+    <div class="convertor__input">
+        <input type="text" class="convertor__text" [(ngModel)]="qrdata" (keyup.enter)="handleConvert()" placeholder="Enter URL" >
+        <button (click)="handleConvert()" class="convert__btn btn">Convert</button>
+    </div>
+    
+    @if (isConverted) {
+        <div class="convert__result">
+            @if (Converting) {
+                <span class="convert__loading" >Loading...</span>
+                
+            }
+            @else{
+                <div class="QRCode__wrapper">
+                        <qrcode [qrdata]="qrdata" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+                </div>
+            }
+                <button class="download__btn btn" (click)="downloadQRCode()">Download</button>
+        </div>
+        
+    }
+    
+</div>

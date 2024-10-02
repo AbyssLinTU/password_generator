@@ -1,0 +1,13 @@
+.wrapper {
+  border: 2px solid var(--purpleDark);
+  margin-bottom: 40px;
+  padding: 4px;
+}
+.nav-btn {
+  text-decoration: none;
+  color: var(--purpleDark);
+  &:hover {
+    text-decoration: underline;
+  }
+  margin-right: 12px;
+}

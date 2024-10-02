@@ -78,7 +78,29 @@ export class PasswordCreatorComponent {
     '8',
     '9',
   ];
-  private symArray: string[] = ['#', '%', '&', '@', '<', '>'];
+  private symArray: string[] = [
+    '#',
+    '%',
+    '&',
+    '@',
+    '[',
+    ']',
+    '<',
+    '>',
+    '-',
+    '+',
+    '*',
+    '!',
+    '?',
+    '(',
+    ')',
+    ':',
+    ';',
+    '_',
+    '=',
+    '~',
+    '^',
+  ];
   constructor(private _fb: FormBuilder) {}
   public passwordForm = this._fb.group({
     password: [''],
